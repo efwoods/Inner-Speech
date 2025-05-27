@@ -34,49 +34,8 @@ This is a repository to translate inner speech to human-readable text
 
 ![](https://www.biosemi.com/pics/cap_128_layout_medium.jpg)
 
+## Roadmap
 
-The layout you're referring to is based on the 10-20 system, which is a standardized method for placing electrodes on the scalp for electroencephalography (EEG) and other electrophysiological recordings.
+I'm going to notch filter with 60hz the eeg data, allow a bandpass butterworth filter of 0.5 Hz to 100 Hz, cut the sample from 1.5s to 3.5s to identify useful signal. Then I have 128 channels of data that I will take the 0 mean and unit variance of with a StandardScaler. I will preprocess all the data related to inner speech runs within the first 2 session for all 10 subjects. Then I will use this data to train a LSTM CNN model with 4 outputs using the associated training labels. 
 
-The 10-20 system, developed in the 1950s by Dr. Hans Berger and later refined by the International Federation of Societies for Electroencephalography and Clinical Neurophysiology (IFSECN), provides a standardized and reproducible way to place electrodes on the scalp.
-
-Here's a brief explanation of the 10-20 system:
-
-    The system uses a grid of points on the scalp, spaced 10% or 20% of the distance between anatomical landmarks.
-    The landmarks used are:
-        Nz: Nasion (the bridge of the nose)
-        Inion: The most posterior point of the occipital bone (at the back of the head)
-        Preauricular points: Points in front of each ear
-    The grid is divided into regions, labeled with letters and numbers:
-        Letters: Indicate the region (e.g., F for frontal, C for central, P for parietal, O for occipital, T for temporal)
-        Numbers: Indicate the position (odd numbers for left hemisphere, even numbers for right hemisphere)
-
-The layout you linked shows a 128-channel EEG system, with electrodes placed according to the 10-20 system and its extensions. Here's a rough mapping of the regions to electrode positions:
-
-    Frontal region:
-        Fp1, Fp2: Frontopolar regions
-        F3, F4: Frontal regions (anterior)
-        F7, F8: Frontal regions (temporal-frontal junction)
-    Central region:
-        C3, C4: Central regions (motor cortex)
-        T3, T4: Temporal regions (anterior)
-    Parietal region:
-        P3, P4: Parietal regions (sensory cortex)
-        P7, P8: Parietal regions (posterior)
-    Occipital region:
-        O1, O2: Occipital regions (visual cortex)
-    Temporal region:
-        T5, T6: Temporal regions (posterior)
-        TP7, TP8: Temporal regions (temporoparietal junction)
-
-Some key points to keep in mind:
-
-    The actual electrode positions may vary slightly depending on individual head shape and size.
-    Modern EEG systems often use more electrodes and may employ other placement systems, such as the 10-10 system or the Equi spaced montage.
-
-To help you better understand the layout, you can refer to the following resources:
-
-    The Biosemi website provides detailed information on their electrode layouts and placement guides.
-    The International EEG Society has published guidelines for EEG electrode placement.
-    Online tools, such as EEG electrode placement simulators, can help visualize the electrode positions.
-
-Keep in mind that EEG data analysis and interpretation require a good understanding of the underlying neurophysiology and EEG processing techniques. If you're new to EEG analysis, it's essential to consult with experts in the field and follow established guidelines and best practices.
+Then I will create a simulation where the data is randomly selected and a simulated stream of information is sent to the classifier and then sent to chat-studio and displayed on the screen as text. This is the visualization of an inner speech pipeline. 
