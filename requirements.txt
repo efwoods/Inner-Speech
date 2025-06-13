@@ -1,1 +1,6 @@
 python-dotenv
+torch
+scikit-learn
+mne
+numpy
+python-dotenv
