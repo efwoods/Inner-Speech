@@ -4,3 +4,6 @@ scikit-learn
 mne
 numpy
 python-dotenv
+tensor
+board
+pandas

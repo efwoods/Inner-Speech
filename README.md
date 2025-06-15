@@ -35,7 +35,8 @@ This is a repository to translate inner speech to human-readable text
 ![](https://www.biosemi.com/pics/cap_128_layout_medium.jpg)
 
 ## Roadmap
+The data in .fif format was preprocessed with a 50hz notch filter, a bandpass butterworth filter of 0.5 Hz to 100 Hz. I cut the samples from 1 to 3.5 seconds and used baseline from -0.5 to 0 to normalize the signal.  
 
-I'm going to notch filter with 60hz the eeg data, allow a bandpass butterworth filter of 0.5 Hz to 100 Hz, cut the sample from 1.5s to 3.5s to identify useful signal. Then I have 128 channels of data that I will take the 0 mean and unit variance of with a StandardScaler. I will preprocess all the data related to inner speech runs within the first 2 session for all 10 subjects. Then I will use this data to train a LSTM CNN model with 4 outputs using the associated training labels. 
+Then I have 128 channels of data that I will take the 0 mean and unit variance of with a StandardScaler. I will preprocess all the data related to inner speech runs within the first 2 session s for all 10 subjects. Then I will use this data to train a LSTM CNN model with 4 outputs using the associated training labels. 
 
 Then I will create a simulation where the data is randomly selected and a simulated stream of information is sent to the classifier and then sent to chat-studio and displayed on the screen as text. This is the visualization of an inner speech pipeline. 
